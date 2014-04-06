@@ -23,3 +23,15 @@
 	    (my-map f (cdr x)))))
 
 
+(defun my-foreach (p x)
+  (if (not (null x))
+      (progn 
+	(funcall p (car x))
+	(my-foreach p (cdr x)))))
+
+; (my-foreach2 (lambda (x) (format t "~a" x)) (list 1 2 3))
+(defun my-foreach2 (p x)
+  (unless (null x)
+    (funcall p (car x))
+    (my-foreach2 p (cdr x))))
+
